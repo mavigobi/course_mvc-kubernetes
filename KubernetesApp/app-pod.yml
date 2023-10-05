@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+  labels:
+     app: app
+     type: mvc
+spec:
+  containers:
+    - name: app-mvc
+      image: magobi/mvc-prototipo:v1.0
+      ports:
+        - containerPort: 80
+      env:
+        - name: ConnectionStrings__ContextoCurso
+          value: Data Source=mssql-service;Initial Catalog=CursosOnline;user id=sa;password=$VaxiDrez2025;TrustServerCertificate=True
